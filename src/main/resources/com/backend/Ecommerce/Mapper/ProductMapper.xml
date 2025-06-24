@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.Ecommerce.Mapper.ProductMapper">
+
+    <insert id="addProduct" parameterType="com.backend.Ecommerce.model.Product">
+        insert into "EcommerceBackendDb".product(name,price,company,category,image)
+        VALUES(#{name},#{price},#{company},#{category},#{image});
+    </insert>
+
+    <select id="getProducts" resultType="com.backend.Ecommerce.model.Product">
+        Select * from "EcommerceBackendDb".product
+    </select>
+
+    <update id="updateProduct" parameterType="com.backend.Ecommerce.model.Product">
+         update "EcommerceBackendDb".product
+            set name=#{name},
+            price=#{price},
+            company=#{company},
+            category=#{category},
+            image=#{image}
+            where id=#{id}
+    </update>
+
+</mapper>
