@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.Ecommerce.Mapper.UserMapper">
+
+    <insert id="addUser" parameterType="com.backend.Ecommerce.model.User">
+        insert into "EcommerceBackendDb".user(username,email,password,mobileno,address)
+        VALUES(#{username},#{email},#{password},#{mobileno},#{address});
+    </insert>
+
+    <select id="getUser" parameterType="com.backend.Ecommerce.model.User" resultType="com.backend.Ecommerce.model.User">
+        Select * from "EcommerceBackendDb".user
+        where email=#{email} and
+        password=#{password}
+    </select>
+
+    <select id="validationOfUser" parameterType="String" resultType="com.backend.Ecommerce.model.User">
+        Select * from "EcommerceBackendDb".user
+        where email=#{email}
+    </select>
+
+
+
+</mapper>
